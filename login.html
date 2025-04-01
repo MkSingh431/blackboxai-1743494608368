@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Clone - Sign In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .auth-tab.active {
+            border-bottom: 3px solid black;
+            font-weight: 600;
+        }
+        .input-field:focus {
+            border-color: black;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <!-- Header (Simplified version) -->
+    <header class="bg-black text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">UBER</a>
+            <div class="relative">
+                <select class="bg-black text-white border-none focus:outline-none">
+                    <option>English</option>
+                    <option>Español</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center py-12">
+        <div class="w-full max-w-md">
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <!-- Auth Tabs -->
+                <div class="flex border-b">
+                    <button id="signin-tab" class="auth-tab active flex-1 py-4 text-center">Sign In</button>
+                    <button id="signup-tab" class="auth-tab flex-1 py-4 text-center">Sign Up</button>
+                </div>
+
+                <!-- Sign In Form -->
+                <div id="signin-form" class="p-8">
+                    <h2 class="text-2xl font-bold mb-6">Welcome back</h2>
+                    
+                    <!-- Social Login -->
+                    <div class="mb-6">
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium mb-3 hover:bg-blue-700">
+                            <i class="fab fa-facebook-f mr-2"></i> Continue with Facebook
+                        </button>
+                        <button class="w-full bg-white border border-gray-300 text-gray-700 py-2 rounded-lg font-medium hover:bg-gray-100">
+                            <i class="fab fa-google mr-2"></i> Continue with Google
+                        </button>
+                    </div>
+
+                    <div class="flex items-center my-6">
+                        <div class="flex-1 border-t border-gray-300"></div>
+                        <span class="px-3 text-gray-500">or</span>
+                        <div class="flex-1 border-t border-gray-300"></div>
+                    </div>
+
+                    <!-- Email/Password Form -->
+                    <form>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full p-3 border rounded-lg input-field" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Password</label>
+                            <div class="relative">
+                                <input type="password" id="password" class="w-full p-3 border rounded-lg input-field" placeholder="Enter your password">
+                                <button type="button" class="absolute right-3 top-3 text-gray-500 hover:text-gray-700" onclick="togglePassword()">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <a href="#" class="text-sm text-blue-500 hover:text-blue-700 mt-1 inline-block">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800">
+                            Sign In
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sign Up Form (Hidden by default) -->
+                <div id="signup-form" class="p-8 hidden">
+                    <h2 class="text-2xl font-bold mb-6">Create your account</h2>
+                    
+                    <!-- Social Sign Up -->
+                    <div class="mb-6">
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium mb-3 hover:bg-blue-700">
+                            <i class="fab fa-facebook-f mr-2"></i> Continue with Facebook
+                        </button>
+                        <button class="w-full bg-white border border-gray-300 text-gray-700 py-2 rounded-lg font-medium hover:bg-gray-100">
+                            <i class="fab fa-google mr-2"></i> Continue with Google
+                        </button>
+                    </div>
+
+                    <div class="flex items-center my-6">
+                        <div class="flex-1 border-t border-gray-300"></div>
+                        <span class="px-3 text-gray-500">or</span>
+                        <div class="flex-1 border-t border-gray-300"></div>
+                    </div>
+
+                    <!-- Registration Form -->
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">First Name</label>
+                                <input type="text" class="w-full p-3 border rounded-lg input-field" placeholder="First name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Last Name</label>
+                                <input type="text" class="w-full p-3 border rounded-lg input-field" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full p-3 border rounded-lg input-field" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full p-3 border rounded-lg input-field" placeholder="+1 (___) ___-____">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Password</label>
+                            <div class="relative">
+                                <input type="password" id="reg-password" class="w-full p-3 border rounded-lg input-field" placeholder="Create a password">
+                                <button type="button" class="absolute right-3 top-3 text-gray-500 hover:text-gray-700" onclick="toggleRegPassword()">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">At least 8 characters with 1 number</p>
+                        </div>
+                        <div class="mb-6">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-4 w-4 text-black">
+                                <span class="ml-2 text-gray-700 text-sm">I agree to Uber's <a href="#" class="text-blue-500">Terms of Service</a> and <a href="#" class="text-blue-500">Privacy Policy</a></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800">
+                            Create Account
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-6">
+                <p class="text-gray-600">By proceeding, you agree to our <a href="#" class="text-blue-500">Terms of Service</a> and <a href="#" class="text-blue-500">Privacy Policy</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Simplified version) -->
+    <footer class="bg-gray-100 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 mb-4 md:mb-0">© 2023 Uber Clone</div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-black">Privacy</a>
+                    <a href="#" class="text-gray-500 hover:text-black">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle between Sign In and Sign Up forms
+        document.getElementById('signin-tab').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('signup-tab').classList.remove('active');
+            document.getElementById('signin-form').classList.remove('hidden');
+            document.getElementById('signup-form').classList.add('hidden');
+        });
+
+        document.getElementById('signup-tab').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('signin-tab').classList.remove('active');
+            document.getElementById('signup-form').classList.remove('hidden');
+            document.getElementById('signin-form').classList.add('hidden');
+        });
+
+        // Toggle password visibility
+        function togglePassword() {
+            const password = document.getElementById('password');
+            const icon = document.querySelector('#signin-form .fa-eye');
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        function toggleRegPassword() {
+            const password = document.getElementById('reg-password');
+            const icon = document.querySelector('#signup-form .fa-eye');
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>
