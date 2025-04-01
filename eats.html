@@ -82,7 +82,7 @@
                         </div>
                         <p class="text-gray-600 text-sm mb-3">Italian • $$ • 0.8 mi</p>
                         <p class="text-gray-500 text-sm mb-4">30-40 min • $1.99 delivery</p>
-                        <button class="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800">
+                        <button class="view-menu-btn w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800" data-restaurant="Mario's Pizzeria">
                             View Menu
                         </button>
                     </div>
@@ -239,5 +239,60 @@
             </div>
         </div>
     </footer>
+
+    <!-- Add API script -->
+    <script src="/js/api.js"></script>
+    <script>
+        const cart = [];
+        
+        // Handle View Menu buttons
+        document.querySelectorAll('.view-menu-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const restaurant = this.dataset.restaurant;
+                alert(`Viewing menu for ${restaurant}`);
+                // In a real app, this would show the restaurant's menu
+            });
+        });
+
+        // Handle Add to Cart buttons
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.dataset.item;
+                const price = parseFloat(this.dataset.price);
+                cart.push({ item, price });
+                alert(`${item} added to cart!`);
+            });
+        });
+
+        // Handle Place Order button
+        document.getElementById('place-order-btn').addEventListener('click', async function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty');
+                return;
+            }
+
+            const deliveryAddress = prompt('Enter delivery address:');
+            if (!deliveryAddress) return;
+
+            try {
+                const result = await UberAPI.placeOrder({
+                    restaurantId: 1, // Would come from selected restaurant
+                    items: cart,
+                    deliveryAddress,
+                    userId: 1 // Would come from auth
+                });
+
+                if (result.success) {
+                    alert('Order placed successfully!');
+                    cart.length = 0; // Clear cart
+                } else {
+                    alert('Failed to place order. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error placing order:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
