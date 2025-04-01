@@ -164,6 +164,8 @@
         </div>
     </footer>
 
+    <!-- Add API script -->
+    <script src="/js/api.js"></script>
     <script>
         // Toggle between Sign In and Sign Up forms
         document.getElementById('signin-tab').addEventListener('click', function() {
@@ -204,6 +206,38 @@
                 icon.classList.replace('fa-eye-slash', 'fa-eye');
             }
         }
+
+        // Handle form submissions
+        document.getElementById('signin-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            const result = await UberAPI.login(email, password);
+            if (result.success) {
+                window.location.href = 'index.html';
+            } else {
+                alert(result.message);
+            }
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = {
+                firstName: this.querySelector('input[name="firstName"]').value,
+                lastName: this.querySelector('input[name="lastName"]').value,
+                email: this.querySelector('input[type="email"]').value,
+                password: this.querySelector('input[type="password"]').value
+            };
+            
+            const result = await UberAPI.register(formData);
+            if (result.success) {
+                alert('Registration successful! Please login.');
+                document.getElementById('signin-tab').click();
+            } else {
+                alert(result.message);
+            }
+        });
     </script>
 </body>
 </html>
