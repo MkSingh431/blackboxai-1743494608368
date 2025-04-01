@@ -62,9 +62,9 @@
                         </select>
                     </div>
                 </div>
-                <button class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800">
-                    See prices
-                </button>
+        <button id="see-prices-btn" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800">
+            See prices
+        </button>
             </div>
 
             <!-- Vehicle Options -->
@@ -181,5 +181,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- Add API script -->
+    <script src="/js/api.js"></script>
+    <script>
+        document.getElementById('see-prices-btn').addEventListener('click', function() {
+            const pickup = document.querySelector('input[placeholder="Enter pickup location"]').value;
+            const destination = document.querySelector('input[placeholder="Enter destination"]').value;
+            
+            if (!pickup || !destination) {
+                alert('Please enter both pickup and destination locations');
+                return;
+            }
+            
+            // In a real app, this would call the API to get actual prices
+            document.querySelectorAll('.price').forEach(el => {
+                el.textContent = '$' + (10 + Math.floor(Math.random() * 20));
+            });
+        });
+
+        document.querySelectorAll('.choose-ride-btn').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                const pickup = document.querySelector('input[placeholder="Enter pickup location"]').value;
+                const destination = document.querySelector('input[placeholder="Enter destination"]').value;
+                const vehicleType = this.dataset.type;
+                
+                if (!pickup || !destination) {
+                    alert('Please enter both pickup and destination locations');
+                    return;
+                }
+
+                try {
+                    const result = await UberAPI.requestRide({
+                        pickup,
+                        destination, 
+                        vehicleType,
+                        userId: 1 // In a real app, this would come from auth
+                    });
+                    
+                    if (result.success) {
+                        alert(`Your ${vehicleType} ride has been booked! Driver arriving soon.`);
+                    } else {
+                        alert('Failed to book ride. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error booking ride:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
