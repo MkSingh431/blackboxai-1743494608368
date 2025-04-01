@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Clone - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .timeline-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: 100%;
+            width: 2px;
+            background: #e5e7eb;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header (Same as index.html) -->
+    <header class="bg-black text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-2xl font-bold">UBER</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="ride.html" class="hover:text-gray-300">Ride</a>
+                    <a href="eats.html" class="hover:text-gray-300">Eats</a>
+                    <a href="freight.html" class="hover:text-gray-300">Freight</a>
+                    <a href="about.html" class="text-white font-medium">About</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <select class="bg-black text-white border-none focus:outline-none">
+                        <option>English</option>
+                        <option>Español</option>
+                    </select>
+                </div>
+                <a href="login.html" class="bg-white text-black px-4 py-2 rounded-full font-medium hover:bg-gray-200">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-6">Moving the way the world moves</h1>
+            <p class="text-xl max-w-2xl mx-auto">We're reimagining how people and things connect from one place to the next</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <div class="container mx-auto px-4">
+            <!-- About Section -->
+            <section class="mb-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                        <p class="text-gray-700 mb-4">Founded in 2009, Uber started as a simple idea: What if you could request a ride from your phone? Today, we've grown into a global platform powering smarter transportation for people, food, and things across 10,000+ cities.</p>
+                        <p class="text-gray-700">Our technology creates new possibilities for people to move, earn, and work in ways that were never before possible.</p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-xl">
+                        <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" alt="Uber Office" class="w-full h-96 object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="mb-16 bg-gray-100 rounded-xl p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-bold mb-2">10M+</div>
+                        <p class="text-gray-600">Daily trips worldwide</p>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">70+</div>
+                        <p class="text-gray-600">Countries served</p>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">4M+</div>
+                        <p class="text-gray-600">Driver partners</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">Our Journey</h2>
+                <div class="max-w-2xl mx-auto">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative timeline-item pl-8 pb-8">
+                        <div class="absolute left-0 w-4 h-4 bg-black rounded-full"></div>
+                        <h3 class="text-xl font-bold mb-2">2009</h3>
+                        <p class="text-gray-700">Uber is founded in San Francisco as UberCab by Garrett Camp and Travis Kalanick</p>
+                    </div>
+                    <!-- Timeline Item 2 -->
+                    <div class="relative timeline-item pl-8 pb-8">
+                        <div class="absolute left-0 w-4 h-4 bg-black rounded-full"></div>
+                        <h3 class="text-xl font-bold mb-2">2011</h3>
+                        <p class="text-gray-700">Expanded internationally to Paris, our first city outside North America</p>
+                    </div>
+                    <!-- Timeline Item 3 -->
+                    <div class="relative timeline-item pl-8 pb-8">
+                        <div class="absolute left-0 w-4 h-4 bg-black rounded-full"></div>
+                        <h3 class="text-xl font-bold mb-2">2014</h3>
+                        <p class="text-gray-700">Launched UberEATS (now Uber Eats) food delivery service</p>
+                    </div>
+                    <!-- Timeline Item 4 -->
+                    <div class="relative timeline-item pl-8 pb-8">
+                        <div class="absolute left-0 w-4 h-4 bg-black rounded-full"></div>
+                        <h3 class="text-xl font-bold mb-2">2017</h3>
+                        <p class="text-gray-700">Introduced Uber Freight to transform the trucking industry</p>
+                    </div>
+                    <!-- Timeline Item 5 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="absolute left-0 w-4 h-4 bg-black rounded-full"></div>
+                        <h3 class="text-xl font-bold mb-2">2023</h3>
+                        <p class="text-gray-700">Operating in 10,000+ cities with over 130 million monthly active users</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">Leadership Team</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="team-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg" alt="CEO" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Dara Khosrowshahi</h3>
+                            <p class="text-gray-600 mb-4">Chief Executive Officer</p>
+                            <p class="text-gray-700 text-sm">Joined Uber in 2017 with a vision to transform urban mobility globally.</p>
+                        </div>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="team-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.pexels.com/photos/3777946/pexels-photo-3777946.jpeg" alt="CTO" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Sundar Singh</h3>
+                            <p class="text-gray-600 mb-4">Chief Technology Officer</p>
+                            <p class="text-gray-700 text-sm">Leads Uber's engineering and technology development since 2019.</p>
+                        </div>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="team-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.pexels.com/photos/3777940/pexels-photo-3777940.jpeg" alt="CFO" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Nelson Chai</h3>
+                            <p class="text-gray-600 mb-4">Chief Financial Officer</p>
+                            <p class="text-gray-700 text-sm">Oversees Uber's global finance organization and capital strategy.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission Section -->
+            <section class="bg-black text-white rounded-xl p-12 text-center">
+                <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+                <p class="text-xl max-w-3xl mx-auto">We ignite opportunity by setting the world in motion. Good things happen when people can move, whether across town or toward their dreams. Opportunities appear, open up, and become reality.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-600 hover:text-black">About us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="ride.html" class="text-gray-600 hover:text-black">Ride</a></li>
+                        <li><a href="eats.html" class="text-gray-600 hover:text-black">Eats</a></li>
+                        <li><a href="freight.html" class="text-gray-600 hover:text-black">Freight</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-600 hover:text-black">Contact us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Help Center</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Safety</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Follow us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 mb-4 md:mb-0">© 2023 Uber Clone</div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-black">Privacy</a>
+                    <a href="#" class="text-gray-500 hover:text-black">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
