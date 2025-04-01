@@ -140,7 +140,7 @@
                                     <input type="email" class="w-full p-3 border rounded-lg" placeholder="your@email.com">
                                 </div>
 
-                                <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800">
+                                <button id="get-quote-btn" type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800">
                                     Get Instant Quote
                                 </button>
                             </form>
@@ -269,5 +269,47 @@
             </div>
         </div>
     </footer>
+
+    <!-- Add API script -->
+    <script src="/js/api.js"></script>
+    <script>
+        document.getElementById('get-quote-btn').addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const origin = document.querySelector('input[placeholder="City, State or ZIP"]').value;
+            const destination = document.querySelectorAll('input[placeholder="City, State or ZIP"]')[1].value;
+            const pickupDate = document.querySelector('input[type="date"]').value;
+            const equipmentType = document.querySelector('select').value;
+            const cargoDetails = document.querySelector('textarea').value;
+            const contactEmail = document.querySelector('input[type="email"]').value;
+            
+            if (!origin || !destination || !pickupDate || !contactEmail) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            try {
+                const result = await UberAPI.getFreightQuote({
+                    origin,
+                    destination,
+                    cargoDetails: {
+                        equipmentType,
+                        details: cargoDetails,
+                        pickupDate
+                    },
+                    userId: 1 // Would come from auth in real app
+                });
+
+                if (result.success) {
+                    alert(`Your freight quote is ready: $${result.quote.price}\n\nA copy has been sent to ${contactEmail}`);
+                } else {
+                    alert('Failed to get quote. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error getting freight quote:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
