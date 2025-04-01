@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Clone - Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .map-container {
+            height: 400px;
+            background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=37.775,-122.418&zoom=13&size=800x400&maptype=roadmap&markers=color:red%7C37.775,-122.418&key=YOUR_API_KEY');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header (Same as index.html) -->
+    <header class="bg-black text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-2xl font-bold">UBER</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="ride.html" class="hover:text-gray-300">Ride</a>
+                    <a href="eats.html" class="hover:text-gray-300">Eats</a>
+                    <a href="freight.html" class="hover:text-gray-300">Freight</a>
+                    <a href="about.html" class="hover:text-gray-300">About</a>
+                    <a href="contact.html" class="text-white font-medium">Contact</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <select class="bg-black text-white border-none focus:outline-none">
+                        <option>English</option>
+                        <option>Español</option>
+                    </select>
+                </div>
+                <a href="login.html" class="bg-white text-black px-4 py-2 rounded-full font-medium hover:bg-gray-200">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-6">We're here to help</h1>
+            <p class="text-xl max-w-2xl mx-auto">Have questions or need assistance? Our team is available 24/7 to support you.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <div class="container mx-auto px-4">
+            <!-- Contact Options -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">How can we help?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Option 1 -->
+                    <div class="contact-card bg-white rounded-lg shadow-md p-6 transition duration-300 text-center">
+                        <div class="text-blue-500 text-4xl mb-4">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Support Center</h3>
+                        <p class="text-gray-600 mb-4">Get answers to common questions in our help center</p>
+                        <a href="#" class="text-blue-500 font-medium hover:text-blue-700">Visit Help Center</a>
+                    </div>
+
+                    <!-- Option 2 -->
+                    <div class="contact-card bg-white rounded-lg shadow-md p-6 transition duration-300 text-center">
+                        <div class="text-blue-500 text-4xl mb-4">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Live Chat</h3>
+                        <p class="text-gray-600 mb-4">Chat with our support team in real-time</p>
+                        <a href="#" class="text-blue-500 font-medium hover:text-blue-700">Start Chat</a>
+                    </div>
+
+                    <!-- Option 3 -->
+                    <div class="contact-card bg-white rounded-lg shadow-md p-6 transition duration-300 text-center">
+                        <div class="text-blue-500 text-4xl mb-4">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Phone Support</h3>
+                        <p class="text-gray-600 mb-4">Call us anytime at 1-800-UBER-HELP</p>
+                        <a href="tel:18008237435" class="text-blue-500 font-medium hover:text-blue-700">Call Now</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form -->
+            <section class="mb-16">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <!-- Form -->
+                        <div class="p-8">
+                            <h2 class="text-2xl font-bold mb-6">Send us a message</h2>
+                            <form>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-gray-700 mb-2">First Name</label>
+                                        <input type="text" class="w-full p-3 border rounded-lg focus:border-black">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 mb-2">Last Name</label>
+                                        <input type="text" class="w-full p-3 border rounded-lg focus:border-black">
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" class="w-full p-3 border rounded-lg focus:border-black">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Phone</label>
+                                    <input type="tel" class="w-full p-3 border rounded-lg focus:border-black">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Subject</label>
+                                    <select class="w-full p-3 border rounded-lg focus:border-black">
+                                        <option>General Inquiry</option>
+                                        <option>Account Support</option>
+                                        <option>Payment Issue</option>
+                                        <option>Safety Concern</option>
+                                        <option>Business Partnership</option>
+                                    </select>
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 mb-2">Message</label>
+                                    <textarea class="w-full p-3 border rounded-lg focus:border-black" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="map-container">
+                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                                <h3 class="font-bold">Uber Headquarters</h3>
+                                <p>1455 Market St, San Francisco, CA 94103</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section>
+                <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+                <div class="max-w-3xl mx-auto">
+                    <!-- FAQ Item 1 -->
+                    <div class="border-b border-gray-200 py-4">
+                        <button class="flex justify-between items-center w-full text-left font-medium">
+                            <span>How do I create an Uber account?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 text-gray-600 hidden">
+                            <p>Download the Uber app from the App Store or Google Play, then follow the prompts to sign up with your email address and phone number. You'll need to add a payment method before you can request your first ride.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="border-b border-gray-200 py-4">
+                        <button class="flex justify-between items-center w-full text-left font-medium">
+                            <span>How do I become a driver?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 text-gray-600 hidden">
+                            <p>Visit our driver signup page and complete the application process. You'll need a valid driver's license, proof of vehicle insurance, and to meet the minimum age requirement in your city. Background and vehicle checks are also required.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="border-b border-gray-200 py-4">
+                        <button class="flex justify-between items-center w-full text-left font-medium">
+                            <span>How does Uber pricing work?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 text-gray-600 hidden">
+                            <p>Uber uses dynamic pricing that takes into account the distance of your trip, local traffic conditions, and current demand for rides. You'll always see the price upfront before confirming your ride. Prices may be higher during busy times.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="border-b border-gray-200 py-4">
+                        <button class="flex justify-between items-center w-full text-left font-medium">
+                            <span>How do I report a safety concern?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 text-gray-600 hidden">
+                            <p>If you have an immediate safety concern, please contact local authorities. You can also report safety issues through the Uber app by going to your trip history, selecting the relevant trip, and choosing "I had a safety issue." Our safety team will follow up.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="border-b border-gray-200 py-4">
+                        <button class="flex justify-between items-center w-full text-left font-medium">
+                            <span>How do I get a refund?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 text-gray-600 hidden">
+                            <p>If you believe you're entitled to a refund, go to your trip history in the Uber app, select the trip in question, and choose "Review my fare or fees." From there you can submit a refund request. Our support team will review your request and respond.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-600 hover:text-black">About us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="ride.html" class="text-gray-600 hover:text-black">Ride</a></li>
+                        <li><a href="eats.html" class="text-gray-600 hover:text-black">Eats</a></li>
+                        <li><a href="freight.html" class="text-gray-600 hover:text-black">Freight</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-600 hover:text-black">Contact us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Help Center</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Safety</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Follow us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 mb-4 md:mb-0">© 2023 Uber Clone</div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-black">Privacy</a>
+                    <a href="#" class="text-gray-500 hover:text-black">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('button.flex').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
